@@ -37,8 +37,8 @@ func failOnError(err error, msg string) {
 var errNotFound = errors.New("Error: No data found")
 
 func main() {
-	// dbURL := os.Getenv("DATABASE_URL")
-	db, err := sql.Open("postgres", "postgres://feuvxyfxrynubd:127b559e029a44895ba60207b1579fcc2e1fb10623156850454775a8481d23fe@ec2-54-196-33-23.compute-1.amazonaws.com:5432/dcv0ou9re68stk")
+	dbURL := os.Getenv("DATABASE_URL")
+	db, err := sql.Open("postgres", dbURL)
 	failOnError(err, "failed to connect db")
 	defer db.Close()
 
